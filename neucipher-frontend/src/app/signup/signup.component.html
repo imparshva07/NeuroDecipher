@@ -1,0 +1,48 @@
+<!-- <form (ngSubmit)="onSignup()">
+    <input type="email" placeholder="Email" [(ngModel)]="email" name="email" required>
+    <input type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
+    <button type="submit">Sign Up</button>
+  </form> -->
+
+  <header style="text-align: center;">
+    <h1>Create Your Account</h1>
+  </header>
+  <form (ngSubmit)="onSignup()" #signupForm="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="userData.name">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="userData.email">
+    </div>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" name="username" required [(ngModel)]="userData.username">
+    </div>
+    <div class="form-group">
+      <label for="gender">Gender</label>
+      <select class="form-control" id="gender" name="gender" required [(ngModel)]="userData.gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="contactNumber">Contact Number</label>
+      <input type="text" class="form-control" id="contactNumber" name="contactNumber" required [(ngModel)]="userData.contactNumber">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" required [(ngModel)]="userData.password">
+    </div>
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required [(ngModel)]="confirmPassword">
+    </div>
+    <div class="form-group">
+      <label for="dob">Date of Birth</label>
+      <input type="date" class="form-control" id="dob" name="dob" required [(ngModel)]="userData.dob">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!signupForm.valid || userData.password !== confirmPassword">Sign Up</button>
+  </form>
+  

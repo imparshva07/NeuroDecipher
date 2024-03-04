@@ -1,0 +1,13 @@
+<!-- login.component.html -->
+
+<div class="container">
+  <header>
+    <h1>Welcome Back! Log in to Your Account</h1>
+  </header>
+  
+  <form (ngSubmit)="onLogin()" class="login-form">
+    <input type="email" placeholder="Email" [(ngModel)]="email" name="email" required>
+    <input type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
+    <button type="submit">Login</button>
+  </form>
+</div>

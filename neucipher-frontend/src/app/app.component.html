@@ -1,0 +1,13 @@
+<nav class="navbar" (click)="toggleNavbarMenu()">
+  <div class="navbar-toggle" id="navbarToggle">
+    <div class="toggle-line"></div>
+    <div class="toggle-line"></div>
+    <div class="toggle-line"></div>
+  </div>
+  <ul class="navbar-menu" id="navbarMenu">
+    <li><a routerLink="/signup">Sign Up</a></li>
+    <li><a routerLink="/login">Login</a></li>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>
