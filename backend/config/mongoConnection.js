@@ -1,5 +1,3 @@
-import {MongoClient} from 'mongodb';
-import {mongoConfig} from './settings.js';
 
 // let _connection = undefined;
 // let _db = undefined;
@@ -30,7 +28,9 @@ let _db = undefined;
 const app = express();
 app.use(cors());
 
-const PORT = 3000;
+const PORT = 3001;
+
+app.use(express.json());
 
 //start server 
 export const startServer = () => {
@@ -44,8 +44,7 @@ app.listen(PORT, () => {
 
 export const dbConnection = async () => {
 mongoose.connect(
-'mongodb+srv://pshah10:5dAUvpyXIkzZYqG1@dev-neucipher-internal.ic3ferq.mongodb.net/?retryWrites=true&w=majority&appName=dev-neucipher-internal'
-, { useNewUrlParser: true, useUnifiedTopology: true })
+'mongodb+srv://pshah10:5dAUvpyXIkzZYqG1@dev-neucipher-internal.ic3ferq.mongodb.net/?retryWrites=true&w=majority&appName=dev-neucipher-internal')
   .then(() => {
     console.log('MongoDB connected');
   })

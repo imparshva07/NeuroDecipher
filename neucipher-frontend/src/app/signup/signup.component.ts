@@ -21,6 +21,6 @@ export class SignupComponent {
   constructor(private authService: AuthService) { }
 
   onSignup() {
-    this.authService.signup(this.userData);
+    //this.authService.signup(this.userData); //facing issue in API call
   }
 }
