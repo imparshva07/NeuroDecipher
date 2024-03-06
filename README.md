@@ -5,7 +5,7 @@
 run => npm install ng serve
 
 - to run backend,
-run => npm install node.js
+run => npm install node app.js
 
 - Machine learning Model training dataset
   
