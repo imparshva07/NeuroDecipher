@@ -2,7 +2,7 @@
 
 
 - to run neucipher-frontend, 
-run => npm install
+run => ng serve
 
 - to run backend,
 run => npm install
