@@ -2,10 +2,10 @@
 
 
 - to run neucipher-frontend, 
-run => npm install ng serve
+run => npm install => ng serve
 
 - to run backend,
-run => npm install node app.js
+run => npm install => node app.js
 
 - Machine learning Model training dataset
   
