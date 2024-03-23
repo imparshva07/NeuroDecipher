@@ -1,4 +1,41 @@
-<nav class="navbar" (click)="toggleNavbarMenu()">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeuCipher Med Portal</title>
+  <!-- Link to your CSS file -->
+  <link rel="stylesheet" type="app/css" href="app.component.scss">
+</head>
+<body>
+<ng-container *ngIf="showHomeNavOptions">
+  <nav class="navbar">
+    <img src="assets/Image4.png" alt="Logo" class="navbar-logo"> 
+    <h1 class="webapp-name">
+      <span class="n">N</span>eu<span class="c">C</span>ipher <span class="m">M</span>ed <span class="p">P</span>ortal
+  </h1>
+    <!--<div class="right-section">
+      <ul class="navbar-menu" id="navbarMenu">
+        <li><a routerLink="/signup">SIGN UP</a></li>
+        <li><a routerLink="/login">LOGIN</a></li>
+      </ul>
+    </div> -->
+    <div class="right-section">
+      <div class="signup-bar">
+        <a routerLink="/signup" class="signup">SIGN UP</a>
+      </div>
+      <div class="login-bar">
+        <a routerLink="/login" class="login">LOGIN</a>
+      </div>
+    </div>
+  </nav>
+</ng-container>
+<img src="assets/BackgroundImage1.png" alt="Left Image" class="left-image">
+<img src="assets/BackgroundImage2.png" alt="Right Image" class="right-image">
+<img src="assets/BackgroundImage3.png" alt="BottomLeft Image" class="bottomleft-image">
+<router-outlet></router-outlet>
+</body>
+
+<!--Commented-->
+<!-- <nav class="navbar" (click)="toggleNavbarMenu()">
   <div class="navbar-toggle" id="navbarToggle">
     <div class="toggle-line"></div>
     <div class="toggle-line"></div>
@@ -10,4 +47,7 @@
   </ul>
 </nav>
 
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->
+
+
+
