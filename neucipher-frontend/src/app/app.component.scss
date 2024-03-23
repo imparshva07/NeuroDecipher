@@ -1,0 +1,103 @@
+/*NeuCipher Med Portal Name*/
+.webapp-name {
+  position: absolute; /* Set position to absolute */
+  bottom: 0; /* Position at the bottom */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for centering */
+  font-size: 25px;
+  margin-top: 0;
+  color: #066EA8;
+  padding-bottom: 5px; 
+  font-family: 'Inter', sans-serif;/* Adjust padding as needed */
+}
+.n, .c, .m, .p{
+  color: #066EA8;
+  font-size: 35px;
+  font-family: 'Inter', sans-serif;
+}
+
+/*Background of the Navigation Bar*/
+.navbar {
+  position: relative;
+  width: auto; /* Adjust as needed */
+  height: 80px; 
+  background-color: #F8F6F0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+/*Image on the Navbar*/
+.navbar-logo {
+  max-height: 100%;
+  margin-left: 2px; /* Adjust the margin as needed to position the image */
+}
+
+/*Code for the Signup and Login bar*/
+.navbar-menu {
+  position: absolute;
+  right: 20px; /* Adjust as needed */
+}
+
+.signup-bar, .login-bar {
+  background-color:  #51A3BC;/* Background color */
+  border-radius: 20px; /* Rounded corners */
+  padding: 3px 15px; /* Padding */
+ 
+}
+
+.signup-bar {
+  margin-right: 10px; /* Adjust spacing between bars */
+}
+
+.login-bar {
+  margin-right: 10px;
+  margin-top: 20px;
+   /* Adjust spacing between bars */
+}
+
+.signup-bar a, .login-bar a {
+  text-decoration: none;
+  color: #F8F6F0;/* Text color */
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.signup-bar a:hover, .login-bar a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+/*Code for the Background Image*/
+body {
+  position: relative; /* Ensure the body is positioned relatively */
+  background-color: #51A3BC;/* Set background color to blue */ /* Set background image */
+  /* Adjusts the background image size to cover the entire container */
+  background-position: center;
+  background-attachment: fixed; 
+
+}
+
+.left-image {
+  position: absolute;/* Set the position to absolute */
+  top: 200px;
+  left: 10px; /* Adjust the distance from the left */
+  width: 750px; /* Adjust the width of the image */
+  height: 170px; 
+}
+
+.right-image {
+  position: absolute;/* Set the position to absolute */
+  top: 600px;
+  right: 40px; /* Adjust the distance from the left */
+  width: 700px; /* Adjust the width of the image */
+  height: 170px; 
+}
+
+.bottomleft-image {
+  position: absolute;/* Set the position to absolute */
+  top: 1000px;
+  left: 10px; /* Adjust the distance from the left */
+  width: 750px; /* Adjust the width of the image */
+  height: 170px; 
+}
