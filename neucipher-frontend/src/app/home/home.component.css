@@ -48,6 +48,72 @@
 }
 /*End of First Text and Image*/
 
+/*For the Second Text and Image*/
+.welcome-message{
+  display: flex;
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+}
+
+.welcome-message h1 {
+  font-size: 30px;
+  font-family: 'Inter', sans-serif;
+  text-align: left;
+  margin-top: 180px;
+  margin-right: 1px;
+  margin-left: 160px;
+  color: #F8F6F0; /* Add space between the text and the small image */
+  text-shadow: 2px 2px 0px rgb(0, 0, 0, 0.5);
+}
+
+.welcome-message h1 span {
+  font-size: 36px;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  margin-right: 1px;
+  color: black; /* Add space between the text and the small image */
+}
+
+
+.feature1 img {  
+  width: 800px;
+  height: 300px;
+  order: -1;
+  margin-top: 130px;
+}
+/*End of Second Text and Image*/
+
+/* For the Third Text and Image */
+.home-details {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+}
+
+.home-details h1 {
+  font-size: 35px;
+  font-weight: bold;
+  font-family: 'Inter', sans-serif;
+  text-align: left;
+  margin-top:140px;
+  margin-right: 10px;
+  color: #F8F6F0;/* Add space between the text and the small image */
+  text-shadow: 2px 2px 0px rgb(0, 0, 0, 0.5);
+}
+
+.home-details h1 span {
+  font-family: 'Inter', sans-serif;
+  color: black;
+  font-size: 40px; /* Set the color for NeuCipher */
+}
+
+.home-details img { 
+  position:relative; /* Align the image to the top */
+  width: 700px;
+  height: 300px;
+}
+/*End of Third Text and Image*/
+
 footer {
   text-align: center;
   margin-top: 40px;
