@@ -18,13 +18,24 @@
         <li><a routerLink="/login">LOGIN</a></li>
       </ul>
     </div> -->
-    <div class="right-section">
-      <div class="signup-bar">
-        <a routerLink="/signup" class="signup">SIGN UP</a>
-      </div>
-      <div class="login-bar">
-        <a routerLink="/login" class="login">LOGIN</a>
-      </div>
+    <div class="signup-bar">
+          <a routerLink="/signup" class="signup">SIGN UP</a>
+          <!-- Hidden content to show on hover -->
+          <div class="hover-content">
+            <a routerLink="/signup">Doctor</a>
+            <a routerLink="/signup">Patient</a>
+          </div>
+        </div>
+    
+        <div class="login-bar">
+          <a routerLink="/login" class="login">LOGIN</a>
+          <!-- Hidden content to show on hover -->
+          <div class="hover-content">
+            <a routerLink="/login">Doctor</a>
+            <a routerLink="/login">Patient</a>
+          </div>
+        </div>
+          
     </div>
   </nav>
 </ng-container>
