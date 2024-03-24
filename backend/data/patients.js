@@ -8,7 +8,11 @@ const create = async (newUser
     let newUserToBeAdded = {
       email : newUser.email,
       username : newUser.username,
-      password : newUser.password
+      password : newUser.password,
+      gender : newUser.gender,
+      contactNumber : newUser.contactNumber,
+      password : newUser.password,
+      dob : newUser.dob
     };
   
     const patientsCollection = await patients();
