@@ -1,28 +1,34 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
 
-import {create} from '../data/patients.js'
-
 import {Router} from 'express';
 const router = Router();
+import {patientData} from '../data/index.js';
+import {ObjectId} from 'mongodb';
 
-router.route('/')
-.post(async (req, res) => {
-  return res.send('POST request to http://localhost:3001');
-});
+// router
+// .route('/')
+// .post(async (req, res) => {
+//   return res.send('POST request to http://localhost:3000');
+// });
 
-router.route('/signup')
+router
+.route('/signup')
 .post(async (req, res) => {
   try {
-    const { email, username, password } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const { name, email, username, gender, contactNumber, password, dob } = req.body;
+    //const hashedPassword = await bcrypt.hash(password, 10);
 
     let newUser = {
+      name : name,
       email : email,
       username : username,
-      password : hashedPassword
+      gender : gender,
+      contactNumber: contactNumber,
+      password : password,
+      dob : dob
     };
-    await create(newUser);
+    await patientData.create(newUser);
     res.status(201).json({ message: 'patient created successfully' });
   } catch (error) {
     res.status(500).json({ error: error.message });
