@@ -1,0 +1,120 @@
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* For the first Text and Image */
+.welcome-text {
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+}
+
+.welcome-text h1 {
+  font-size: 35px;
+  font-weight: bold;
+  font-family: 'Inter', sans-serif;
+  text-align: left;
+  margin-top:100px;
+  margin-right: 170px;
+  color: #F8F6F0;
+  text-shadow: 2px 2px 2px rgb(0, 0, 0.5); 
+}
+
+.neucipher {
+  color: black;
+  font-size: 50px;
+  font-family: 'Inter', sans-serif; 
+}
+
+.welcome-text img { 
+  position:relative; 
+  width: 400px;
+  height: 250px;
+}
+/*End of First Text and Image*/
+
+/*For the Second Text and Image*/
+.welcome-message{
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+}
+
+.welcome-message h1 {
+  font-size: 30px;
+  font-family: 'Inter', sans-serif;
+  text-align: left;
+  margin-top: 180px;
+  margin-right: 1px;
+  margin-left: 160px;
+  color: #F8F6F0; 
+  text-shadow: 2px 2px 0px rgb(0, 0, 0, 0.5);
+}
+
+.welcome-message h1 span {
+  font-size: 36px;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  margin-right: 1px;
+  color: black; 
+}
+
+
+.feature1 img {  
+  width: 800px;
+  height: 300px;
+  order: -1;
+  margin-top: 130px;
+}
+/*End of Second Text and Image*/
+
+/* For the Third Text and Image */
+.home-details {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+
+.home-details h1 {
+  font-size: 35px;
+  font-weight: bold;
+  font-family: 'Inter', sans-serif;
+  text-align: left;
+  margin-top:140px;
+  margin-right: 10px;
+  color: #F8F6F0;
+  text-shadow: 2px 2px 0px rgb(0, 0, 0, 0.5);
+}
+
+.home-details h1 span {
+  font-family: 'Inter', sans-serif;
+  color: black;
+  font-size: 40px; 
+}
+
+.home-details img { 
+  position:relative; 
+  width: 700px;
+  height: 300px;
+}
+/*End of Third Text and Image*/
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+}
