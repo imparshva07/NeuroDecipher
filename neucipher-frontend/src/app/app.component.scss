@@ -1,14 +1,14 @@
 /*NeuCipher Med Portal Name*/
 .webapp-name {
-  position: absolute; /* Set position to absolute */
-  bottom: 0; /* Position at the bottom */
-  left: 50%; /* Center horizontally */
-  transform: translateX(-50%); /* Adjust for centering */
+  position: absolute; 
+  bottom: 0; 
+  left: 50%; 
+  transform: translateX(-50%); 
   font-size: 25px;
   margin-top: 0;
   color: #066EA8;
   padding-bottom: 5px; 
-  font-family: 'Inter', sans-serif;/* Adjust padding as needed */
+  font-family: 'Inter', sans-serif;
 }
 .n, .c, .m, .p{
   color: #066EA8;
@@ -31,24 +31,24 @@
 /*Image on the Navbar*/
 .navbar-logo {
   max-height: 100%;
-  margin-left: 2px; /* Adjust the margin as needed to position the image */
+  margin-left: 2px;
 }
 
 /*Code for the Signup and Login bar*/
 .navbar-menu {
   position: absolute;
-  right: 20px; /* Adjust as needed */
+  right: 20px; 
 }
 
 .signup-bar, .login-bar {
-  background-color:  #51A3BC;/* Background color */
-  border-radius: 20px; /* Rounded corners */
-  padding: 3px 15px; /* Padding */
+  background-color:  #51A3BC;
+  border-radius: 20px;
+  padding: 3px 15px;
  
 }
 
 .signup-bar {
-  margin-right: 10px; /* Adjust spacing between bars */
+  margin-right: 10px; 
 }
 
 .login-bar {
@@ -66,35 +66,34 @@
 
 /*Code for the Background Image*/
 body {
-  position: relative; /* Ensure the body is positioned relatively */
-  background-color: #51A3BC;/* Set background color to blue */ /* Set background image */
-  /* Adjusts the background image size to cover the entire container */
+  position: relative; 
+  background-color: #51A3BC;
   background-position: center;
   background-attachment: fixed; 
 
 }
 
 .left-image {
-  position: absolute;/* Set the position to absolute */
+  position: absolute;
   top: 200px;
-  left: 10px; /* Adjust the distance from the left */
-  width: 750px; /* Adjust the width of the image */
+  left: 10px; 
+  width: 750px; 
   height: 170px; 
 }
 
 .right-image {
-  position: absolute;/* Set the position to absolute */
+  position: absolute;
   top: 600px;
-  right: 40px; /* Adjust the distance from the left */
-  width: 700px; /* Adjust the width of the image */
+  right: 40px; 
+  width: 700px; 
   height: 170px; 
 }
 
 .bottomleft-image {
-  position: absolute;/* Set the position to absolute */
+  position: absolute;
   top: 1000px;
-  left: 10px; /* Adjust the distance from the left */
-  width: 750px; /* Adjust the width of the image */
+  left: 10px; 
+  width: 750px; 
   height: 170px; 
 }
 
@@ -103,39 +102,38 @@ body {
 .signup-bar a:hover, .login-bar a:hover {
   text-decoration: underline;
   font-family: 'Inter', sans-serif;
-  color: 000000 /* Underline on hover */
+  color: 000000 
 }
 
-/*For the Hover content*/
+
 .hover-content {
-  display: none; /* Initially hidden */
+  display: none;=
   position: absolute;
-  background-color: #FFFFFF; /* Corrected color format */
+  background-color: #FFFFFF; 
   min-width: 100px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  left: 0; /* Align with the start of the bar */
-  top: 100%; /* Position below the bar */
-  left: 50%; /* Start from the center of the parent */
-  transform: translateX(-100%); /* Move left by its own width */
-  white-space: nowrap; /* Prevent wrapping */
-  border-radius: 10px; /* Adds rounded corners */
+  left: 0; 
+  top: 100%; 
+  left: 50%; 
+  transform: translateX(-100%); 
+  white-space: nowrap; 
+  border-radius: 10px; 
   border: 3px solid black;
 }
 
-/* Show the hover content on parent hover */
+
 .signup-bar:hover .hover-content, .login-bar:hover .hover-content {
   display: block;
 }
 
 .hover-content a {
-  color: #000000; /* Ensured color is visible */
+  color: #000000; 
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
-/* Hover effect for links within the hover content */
 .hover-content a:hover {
-  background-color: #ddd; /* Light grey background on hover */
+  background-color: #ddd;
 }
