@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { SignupDoctorComponent } from './signup-doctor/signup-doctor.component';
+import { LoginDoctorComponent } from './login-doctor/login-doctor.component';
 
 @NgModule({
   declarations: [
