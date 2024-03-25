@@ -1,9 +1,9 @@
-//New code:
+
 
 .background {
-    background-color: #51A3BC; /* Set the background color to blue */
-    min-height: 180vh; //#007bff* Ensure the background covers the entire viewport height */
-    padding: 30px 90px; /* Add padding to the sides */
+    background-color: #51A3BC; 
+    min-height: 180vh;
+    padding: 30px 90px;
     position: relative;
     
   
@@ -11,14 +11,14 @@
   
   
   form {
-    background-color: #51A3BC; /* Set the form background color to white */
+    background-color: #51A3BC; 
     padding: 50px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
-    max-width: 1000px; /* Set maximum width for the form */
-    width: 100%; /* Ensure the form takes the available width */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    max-width: 1000px; 
+    width: 100%; 
     border: 3px solid white;
-    margin: 0 auto; /* Center the form horizontally */
+    margin: 0 auto;
   }
   
   .form-group {
@@ -40,7 +40,7 @@
       border: 2px solid black;
       border-radius: 7px;
       box-sizing: border-box;
-      background-color: white; /* Set input background color to white */
+      background-color: white; 
     }
   }
   
@@ -55,7 +55,7 @@
     box-sizing: border-box;
     cursor: pointer;
     display: block;
-    margin: 0 auto; /* Center the button horizontally */
+    margin: 0 auto;
   }
   
   button:hover {
@@ -69,15 +69,15 @@
   
   /*NeuCipher Med Portal Name*/
 .webapp-name {
-    position: absolute; /* Set position to absolute */
-    bottom: 0; /* Position at the bottom */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust for centering */
+    position: absolute; 
+    bottom: 0;
+    left: 50%; 
+    transform: translateX(-50%); 
     font-size: 25px;
     margin-top: 0;
     color: #066EA8;
     padding-bottom: 5px; 
-    font-family: 'Inter', sans-serif;/* Adjust padding as needed */
+    font-family: 'Inter', sans-serif;
   }
   .n, .c, .m, .p{
     color: #066EA8;
@@ -87,8 +87,8 @@
   
   /*Background of the Navigation Bar*/
   .navbar {
-        position: fixed; /* Fixed position to keep it at the top */
-        top: 0; /* Position at the top */
+        position: fixed;
+        top: 0;
         left: 15px;
         right: 20px;
         width:100%;
@@ -97,7 +97,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 20px; /* Adjusted padding */
+        padding: 0 20px; 
         
     
   }
@@ -105,6 +105,6 @@
   /*Image on the Navbar*/
   .navbar-logo {
     max-height: 100%;
-    margin-left: 2px; /* Adjust the margin as needed to position the image */
+    margin-left: 2px; 
   }
   
