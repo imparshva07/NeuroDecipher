@@ -4,8 +4,10 @@
     <button type="submit">Sign Up</button>
   </form> -->
 
+<div class="background">
   <header style="text-align: center;">
-    <h1>Create Your Account</h1>
+     <h1>Welcome to Portal</h1>
+    <h2>Create your account </h2>
   </header>
   <form (ngSubmit)="onSignup()" #signupForm="ngForm">
     <div class="form-group">
@@ -45,4 +47,5 @@
     </div>
     <button type="submit" class="btn btn-primary" [disabled]="!signupForm.valid || userData.password !== confirmPassword">Sign Up</button>
   </form>
+</div>
   
