@@ -1,0 +1,62 @@
+
+<div class="background">
+
+<nav class="navbar">
+     <img src="assets/Image4.png" alt="Logo" class="navbar-logo"> 
+     <h1 class="webapp-name">
+       <span class="n">N</span>eu<span class="c">C</span>ipher <span class="m">M</span>ed <span class="p">P</span>ortal
+    </h1>   
+</nav>
+<div style="text-align: center;">
+    <h1>Welcome to Doctor's Portal</h1>
+    <h2>Create your account</h2>
+</div>
+  
+
+  <form (ngSubmit)="onSignup()" #signupForm="ngForm">
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="userData.name">
+    </div>
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="userData.email">
+    </div>
+    <div class="form-group">
+        <label for="gender">Gender</label>
+        <select class="form-control" id="gender" name="gender" required [(ngModel)]="userData.gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+    <div class="form-group">
+      <label for="Specialty">Specialty/Department</label>
+      <select class="form-control" id="speciality" name="speciality" required [(ngModel)]="userData.Specialty">
+        <option value="General Practitioner">General Practitioner</option>
+        <option value="Pediatrics">Pediatrics</option>
+        <option value="Obstetrics and Gynecology">Obstetrics and Gynecology</option>
+        <option value="Dermatology">Dermatology</option>
+        <option value="Psychiatry">Psychiatry</option>
+        <option value="Ophthalmology">Ophthalmology</option>
+        <option value="Radiology">Radiology</option>
+      </select>
+    </div>
+    <div class="form-group">
+        <label for="ml">Medical License Number</label>
+        <input type="text" class="form-control" id="ml" name="ml" required [(ngModel)]="userData.ml">
+      </div>
+    <div class="form-group">
+      <label for="contactNumber">Contact Number</label>
+      <input type="text" class="form-control" id="contactNumber" name="contactNumber" required [(ngModel)]="userData.contactNumber">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" required [(ngModel)]="userData.password">
+    </div>
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required [(ngModel)]="confirmPassword">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!signupForm.valid || userData.password !== confirmPassword">Sign Up</button>
+  </form>
+</div>
