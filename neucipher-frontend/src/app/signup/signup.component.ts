@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -18,9 +19,11 @@ export class SignupComponent {
     };
     confirmPassword: string = '';
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
-  onSignup() {
-    //this.authService.signup(this.userData); //facing issue in API call
-  }
+    onSignup() {
+      this.authService.signup(this.userData); //facing issue in API call
+      alert('Signup successful!');
+      this.router.navigate(['/login']);
+    }
 }

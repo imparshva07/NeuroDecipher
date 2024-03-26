@@ -30,7 +30,9 @@
 import express from 'express';
 const app = express();
 import configRoutes from './routes/index.js';
+import cors from 'cors';
 
+app.use(cors());
 app.use(express.json());
 
 configRoutes(app);
