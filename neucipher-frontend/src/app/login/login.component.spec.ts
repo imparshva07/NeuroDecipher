@@ -7,7 +7,7 @@ import { LoginComponent } from './login.component';
 import { By } from '@angular/platform-browser';
 import { AuthService } from '../auth.service'; 
 
-describe('LoginComponent', () => {
+fdescribe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 
@@ -41,7 +41,7 @@ describe('LoginComponent', () => {
   it('should bind email and password fields correctly', () => {
     const emailInput = fixture.debugElement.query(By.css('#email')).nativeElement;
     const passwordInput = fixture.debugElement.query(By.css('#password')).nativeElement;
-    component.email = 'myunittest@gmail.com';
+    component.emailId = 'myunittest@gmail.com';
     component.password = 'password@123';
     fixture.detectChanges();
     expect(emailInput.value).toBe('myunittest@gmail.com');

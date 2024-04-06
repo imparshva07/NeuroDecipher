@@ -23,14 +23,15 @@ const create = async (newUser
     return patientAdded;
   };
 
-  const get = async (id) => {
+  const getPatient = async (id) => {
     const patientCollection = await patients();
+    if(!(ObjectId.isValid(id))) throw('Error: invalid Object Id');
     const patient = await patientCollection.findOne({_id: new ObjectId(id)});
     if (patient === null) throw ('Error : patient not found');
     patient._id = patient._id.toString();
     return patient;
   };
 
-  const exportMethods = {create}
+  const exportMethods = {create, getPatient}
 
   export default exportMethods;

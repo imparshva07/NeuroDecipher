@@ -8,7 +8,7 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  email: string = '';
+  emailId: string = '';
   password: string = '';
 
   constructor(private authService: AuthService) { }
@@ -16,7 +16,7 @@ export class LoginComponent {
   onLogin() {
 
     let userData = {
-      email : this.email,
+      email : this.emailId,
       password : this.password
     }
     this.authService.login(userData);

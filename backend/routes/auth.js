@@ -1,10 +1,6 @@
-import express from 'express';
-import jwt from 'jsonwebtoken';
-
 import {Router} from 'express';
 const router = Router();
 import {patientData} from '../data/index.js';
-import {ObjectId} from 'mongodb';
 
 // router
 // .route('/')
