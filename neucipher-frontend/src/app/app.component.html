@@ -6,7 +6,6 @@
   <link rel="stylesheet" type="app/css" href="app.component.scss">
 </head>
 <body>
-<ng-container *ngIf="showHomeNavOptions">
   <nav class="navbar">
     <img src="assets/Image4.png" alt="Logo" class="navbar-logo"> 
     <h1 class="webapp-name">
@@ -17,9 +16,8 @@
           <a routerLink="/signup" class="signup">SIGN UP</a>
         </div> -->
 
-        <div class="signup-bar">
-          <a routerLink="/signup" class="signup">SIGN UP</a>
-          <!-- Hidden content to show on hover -->
+        <div class="navigation-bar signup-bar">
+          <a routerLink="/" class="navigation-link">SIGN UP</a>
           <div class="hover-content">
             <a routerLink="/signupdoctor">Doctor</a>
             <a routerLink="/signup">Patient</a>
@@ -30,24 +28,18 @@
           <a routerLink="/login" class="login">LOGIN</a>
         </div> -->
 
-        <div class="login-bar">
-          <a routerLink="/login" class="login">LOGIN</a>
-          <!-- Hidden content to show on hover -->
+        <div class="navigation-bar login-bar">
+          <a routerLink="/" class="navigation-link">LOGIN</a>
           <div class="hover-content">
             <a routerLink="/logindoctor">Doctor</a>
             <a routerLink="/login">Patient</a>
           </div>
         </div>
-          
-        
-        
-      
     </div>
   </nav>
-</ng-container>
-<img src="assets/BackgroundImage1.png" alt="Left Image" class="left-image">
-<img src="assets/BackgroundImage2.png" alt="Right Image" class="right-image">
-<img src="assets/BackgroundImage3.png" alt="BottomLeft Image" class="bottomleft-image">
+<img src="assets/BackgroundImage1.png" alt="Background Medical Application" class="Firstimage">
+<img src="assets/BackgroundImage2.png" alt="Background Medical kit" class="Secondimage">
+<img src="assets/BackgroundImage3.png" alt="BottomLeft Image" class="Thirdimage">
 <router-outlet></router-outlet>
 </body>
 
