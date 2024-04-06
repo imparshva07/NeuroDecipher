@@ -10,6 +10,12 @@ jobs:
     steps:
       - checkout
 
+      # Upgrade pip
+      - run:
+          name: Upgrade pip
+          command: |
+            python -m pip install --upgrade pip
+
       # Install dependencies
       - run:
           name: Install dependencies
