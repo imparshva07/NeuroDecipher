@@ -1,5 +1,7 @@
 # CS/SSW-555-Team 6
 
+[![Meghana-Arumilli](https://circleci.com/gh/Meghana-Arumilli/CS/SSW-555-Team6.svg?style=svg)](https://app.circleci.com/pipelines/github/Meghana-Arumilli/CS-SSW-555-Team-6)
+
 
 - to run neucipher-frontend, 
 run => npm install => ng serve
