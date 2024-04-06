@@ -23,6 +23,24 @@ const create = async (newUser
     return patientAdded;
   };
 
+  const findByEmail = async (email) => {
+    try {
+        const patientsCollection = await patients();
+        const patient = await patientsCollection.findOne({ email });
+        return patient;
+    } catch (error) {
+        throw new Error('Error fetching patient by email: ' + error.message);
+    }
+};
+
+  const get = async (id) => {
+    const patientCollection = await patients();
+    const patient = await patientCollection.findOne({_id: new ObjectId(id)});
+    if (patient === null) throw ('Error : patient not found');
+    patient._id = patient._id.toString();
+    return patient;
+  };
+
   const getPatient = async (id) => {
     const patientCollection = await patients();
     if(!(ObjectId.isValid(id))) throw('Error: invalid Object Id');
@@ -32,6 +50,6 @@ const create = async (newUser
     return patient;
   };
 
-  const exportMethods = {create, getPatient}
+  const exportMethods = {create, getPatient, findByEmail, get}
 
   export default exportMethods;
