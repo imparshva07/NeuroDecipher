@@ -33,6 +33,14 @@ export class AuthService {
         error => console.log('Login error:', error)
       );
   }
+
+  
+  getPatientDetails(_id: string) {
+    // Updated endpoint to reflect fetching by email
+    return this.http.get<any>(`${this.baseUrl}/patient/email/${_id}`);
+  } 
+
+  
   // For Doctor Signup and login
   signupDoctor(userData: any) {
 
@@ -41,7 +49,7 @@ export class AuthService {
         'Content-Type': 'application/json'
       })
     };
-    return this.http.post<any>(`${this.baseUrl}/signup`, userData, httpOptions)
+    return this.http.post<any>(`${this.baseUrl}/signupdoctor`, userData, httpOptions)
       .subscribe(
         response => console.log('Signup successful'),
         error => console.log('Signup error:', error)
@@ -49,7 +57,7 @@ export class AuthService {
   }
 
   logindoctor(userData: { email: string; password: string; }) {
-    return this.http.post<any>(`${this.baseUrl}/login`, userData)
+    return this.http.post<any>(`${this.baseUrl}/logindoctor`, userData)
       .subscribe(
         response => {
           localStorage.setItem('token', response.token);
