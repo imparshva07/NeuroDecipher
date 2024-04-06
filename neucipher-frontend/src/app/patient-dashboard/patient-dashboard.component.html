@@ -1,0 +1,29 @@
+<body>
+  <div class="dashboard-container">
+  <h1 class="dashboard-heading">Welcome to your Dashboard , {{ patientDetails.username }}</h1>
+    <div class="patient-details">
+      <div class="patient-details-content">
+        <div class="patient-details-item">
+          <span class="patient-details-label">Name:</span>
+          <span class="patient-details-value">{{ patientDetails.username }}</span>
+        </div>
+        <div class="patient-details-item">
+          <span class="patient-details-label">Email:</span>
+          <span class="patient-details-value">{{ patientDetails.email }}</span>
+        </div>
+        <div class="patient-details-item">
+          <span class="patient-details-label">Gender:</span>
+          <span class="patient-details-value">{{ patientDetails.gender }}</span>
+        </div>
+        <div class="patient-details-item">
+          <span class="patient-details-label">Contact Number:</span>
+          <span class="patient-details-value">{{ patientDetails.contactNumber }}</span>
+        </div>
+        <div class="patient-details-item">
+          <span class="patient-details-label">Date of Birth:</span>
+          <span class="patient-details-value">{{ patientDetails.dob }}</span>
+        </div>
+      </div>
+  </div>
+  </div>
+</body>
