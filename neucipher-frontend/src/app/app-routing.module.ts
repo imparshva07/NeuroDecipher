@@ -5,6 +5,7 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { LoginDoctorComponent } from './login-doctor/login-doctor.component';
 import { SignupDoctorComponent } from './signup-doctor/signup-doctor.component';
+import { PatientDashboardComponent } from './patient-dashboard/patient-dashboard.component';
 
 const routes: Routes = [
   //{ path: '', redirectTo: '/signup', pathMatch: 'full' },
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
   { path: 'logindoctor', component: LoginDoctorComponent},
-  { path: 'signupdoctor', component: SignupDoctorComponent}
+  { path: 'signupdoctor', component: SignupDoctorComponent},
+  {path: 'patientdashboard', component: PatientDashboardComponent},
 ];
 
 @NgModule({
