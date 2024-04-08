@@ -66,4 +66,10 @@ export class AuthService {
         error => console.log('Login error:', error)
       );
   }
+
+  getDoctorDetails(_id: string) {
+    // Updated endpoint to reflect fetching by email
+    return this.http.get<any>(`${this.baseUrl}/doctor/email/${_id}`);
+  } 
+  
 }
