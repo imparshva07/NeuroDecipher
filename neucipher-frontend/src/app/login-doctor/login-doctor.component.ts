@@ -11,7 +11,7 @@ export class LoginDoctorComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private authService: AuthService,,private router: Router) { }
+  constructor(private authService: AuthService,private router: Router) { }
 
   async onLoginDoctor() {
     try {
