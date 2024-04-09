@@ -1,6 +1,8 @@
-import unittest
-
 from github import get_from_github
+
+def test_get_from_github():
+    # Test implementation
+    pass
 
 
 class TestGetRepo(unittest.TestCase):
