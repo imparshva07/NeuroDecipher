@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, Event as RouterEvent} from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -7,16 +8,15 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  showHomeNavOptions: boolean = false;
-  showBackground: boolean = false;
+  isHomePage: boolean = true; 
   title = 'neucipher-frontend';
 
   constructor(private router: Router) {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.showHomeNavOptions = (event.url === '/' || event.url === '/home');
-        this.showBackground = this.showHomeNavOptions;
-      }
+    this.router.events.pipe(
+      filter((event: RouterEvent): event is NavigationEnd => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      // Update isHomePage based on the current URL
+      this.isHomePage = event.url === '/' || event.url === '/home';
     });
   }
 }
