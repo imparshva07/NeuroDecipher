@@ -29,10 +29,19 @@
         <option value="female">Female</option>
       </select>
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="contactNumber">Contact Number</label>
       <input type="text" class="form-control" id="contactNumber" name="contactNumber" required [(ngModel)]="userData.contactNumber">
+    </div> -->
+    <div class="form-group">
+      <label for="contactNumber">Contact Number</label>
+      <input type="text" class="form-control" id="contactNumber" name="contactNumber" [(ngModel)]="userData.contactNumber">
+      <div *ngIf="!validateContactNumber()" class="alert alert-danger">
+        Contact number must be exactly 10 digits long.
+      </div>
     </div>
+    
+    
     <div class="form-group">
       <label for="password">Password</label>
       <input type="password" class="form-control" id="password" name="password" required [(ngModel)]="userData.password">
