@@ -1,48 +1,41 @@
 version: 2.1
 
 jobs:
-  build_and_train:
+  build:
     docker:
-      # Specify the Docker image to use. Adjust the Python version as needed.
-      - image: cimg/python:3.8
-      
+      - image: cimg/python:3.8  # Using CircleCI's Python image. Adjust the version as necessary.
     working_directory: ~/repo
-
     steps:
-      - checkout
-
-      # Restore the cached dependencies, if any
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "requirements.txt" }}
-            - v1-dependencies-
-
-      # Install dependencies
+      - checkout  # Check out your code
+      - run:
+          name: Set up Python environment
+          command: |
+            python -m venv venv
+            echo "source venv/bin/activate" >> $BASH_ENV
       - run:
           name: Install dependencies
           command: |
             python -m pip install --upgrade pip
-            pip install -r requirements.txt
-
-      # Save the dependencies for caching, to speed up future builds
-      - save_cache:
+            pip install torch numpy  # Add any other dependencies you might have
+      - run:
+          name: Prepare data and train model
+          command: |
+            # Assuming your script and data are in the root. Adjust paths as necessary.
+            python train_model.py
+      - run:
+          name: Save model to Workspace
+          command: |
+            # This step assumes your model is saved in the root as 'SavedModel.pth'.
+            # Adjust the path as necessary.
+            mkdir -p /tmp/workspace/
+            cp /content/drive/MyDrive/SavedModel.pth /tmp/workspace/
+      - persist_to_workspace:
+          root: /tmp/workspace/
           paths:
-            - ./venv
-          key: v1-dependencies-{{ checksum "requirements.txt" }}
-          
-      # Prepare the EEG dataset
-      - run:
-          name: Prepare EEG Dataset
-          command: python prepare_dataset.py
+            - SavedModel.pth
 
-      # Train the machine learning model
-      - run:
-          name: Train Model
-          command: python train_model.py
-
-# Define workflows
 workflows:
   version: 2
-  build_and_train_workflow:
+  build_and_train:
     jobs:
-      - build_and_train
+      - build
