@@ -17,6 +17,6 @@ jobs:
           path: test-results
 
 workflows:
-  testing_triangles:
+  52%accuracy:
     jobs:
       - build-and-test
