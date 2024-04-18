@@ -1,6 +1,6 @@
 import {Router} from 'express';
 const router = Router();
-import {patientData} from '../data/index.js';
+import {patientData , doctorData} from '../data/index.js';
 
 // router
 // .route('/')
