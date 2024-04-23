@@ -54,6 +54,12 @@
       <label for="dob">Date of Birth</label>
       <input type="date" class="form-control" id="dob" name="dob" required [(ngModel)]="userData.dob">
     </div>
+    <div class="form-group">
+      <label for="doctorSpecialty">Doctor's Specialty</label>
+      <select class="form-control" id="doctorSpecialty" name="doctorSpecialty" required [(ngModel)]="userData.doctorSpecialty">
+        <option *ngFor="let doctorSpecialty of doctors" [value]="doctorSpecialty">{{ doctorSpecialty }}</option>
+      </select>
+    </div>
     <button type="submit" class="btn btn-primary" [disabled]="!signupForm.valid || userData.password !== confirmPassword">Sign Up</button>
   </form>
 </div>
