@@ -15,10 +15,13 @@ export class SignupComponent {
       gender: '',
       contactNumber: '',
       password: '',
-      dob: ''
+      dob: '',
+      doctorSpecialty: '' 
     };
     confirmPassword: string = '';
 
+    doctors: string[] = [];
+  
   constructor(private authService: AuthService, private router: Router) { }
 
   validateContactNumber(): boolean {
@@ -26,6 +29,22 @@ export class SignupComponent {
     return contactNumberRegex.test(this.userData.contactNumber);
   }
 
+  ngOnInit() {
+    this.fetchDoctorDetails();  
+  }
+
+  //Call to fetch doctor details based on Specialty
+  fetchDoctorDetails() {
+    this.authService.getDoctorSpecialty().subscribe(
+      (data) => {
+        this.doctors = data;
+      },
+      (error) => {
+        console.error('Error fetching doctor details:', error);
+      }
+    );
+  }
+  
     onSignup() {
       if (!this.validateContactNumber()) {
         // Handle invalid contact number
