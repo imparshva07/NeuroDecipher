@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-doctor-dashboard',
@@ -8,8 +9,9 @@ import { AuthService } from '../auth.service';
 })
 export class DoctorDashboardComponent {
   doctorDetails: any; 
-
-  constructor(private authService: AuthService) { }
+  doctorMessages: any[] = []; 
+  
+  constructor(private authService: AuthService , private router: Router) { }
 
   ngOnInit(): void {
     this.fetchdoctorData();
@@ -25,9 +27,32 @@ export class DoctorDashboardComponent {
     this.authService.getDoctorDetails(email).subscribe(
       (data) => {
         this.doctorDetails = data;
+        //Function call
+        this.fetchPatientData(data.name);
       },
       (error) => {
         console.error('Error fetching doctor data:', error);
+      }
+    );
+  }
+
+  //Function to fetch relevant Message from the Patient
+  fetchPatientData(doctorName: string) {
+    this.authService.getPatientsByDoctorName(doctorName).subscribe(
+      (data) => {
+        console.log('Patient data:', data);
+        this.doctorMessages = []; 
+        data.forEach((patient: any) => {
+          const message = patient.message;
+          const patientName = patient.username;
+          if (message) {
+            this.doctorMessages.push({ patientName, message });
+          }
+        });
+        console.log('Doctor Messages:', this.doctorMessages);
+      },
+      (error) => {
+        console.error('Error fetching patient data:', error);
       }
     );
   }
