@@ -23,6 +23,31 @@
           <span class="patient-details-label">Date of Birth:</span>
           <span class="patient-details-value">{{ patientDetails.dob }}</span>
         </div>
+        <div class="patient-details-item">
+          <span class="patient-details-label">Doctor's Name:</span>
+          <span class="patient-details-value">{{ doctorName }}</span>
+        </div>
+        <div class="patient-details-item">
+          <span class="patient-details-label">Doctor's Specialty:</span>
+          <span class="patient-details-value">{{ patientDetails.doctorSpecialty }}</span>
+        </div>
+        <div class="button-container">
+          <div class="button-box">
+            <button (click)="sendMessage('Hello')">Hello</button>
+          </div>
+          <div class="button-box">
+            <button (click)="sendMessage('Help Me')">Help Me</button>
+          </div>
+          <div class="button-box">
+            <button (click)="sendMessage('Yes')">Yes</button>
+          </div>
+          <div class="button-box">
+            <button (click)="sendMessage('thank you')">Thank you</button>
+          </div>
+          <div class="button-box">
+            <button (click)="sendMessage('please')">Please</button>
+          </div>
+      </div>
       </div>
   </div>
   </div>
