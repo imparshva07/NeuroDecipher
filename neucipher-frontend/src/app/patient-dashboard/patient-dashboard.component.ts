@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patient-dashboard',
@@ -7,16 +8,19 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./patient-dashboard.component.scss']
 })
 export class PatientDashboardComponent implements OnInit {
-  patientDetails: any; // Variable to store patient details
+  patientDetails: any; 
 
-  constructor(private authService: AuthService) { }
+  doctorName: string = '';
+  message: string = '';
+
+  constructor(private authService: AuthService , private router: Router) { }
 
   ngOnInit(): void {
     this.fetchPatientData();
   }
 
   fetchPatientData() {
-    const email = localStorage.getItem('email'); // Retrieve patient's email from localStorage
+    const email = localStorage.getItem('email'); 
     if (!email) {
       console.error('Email not found in localStorage');
       return;
@@ -25,11 +29,82 @@ export class PatientDashboardComponent implements OnInit {
     this.authService.getPatientDetails(email).subscribe(
       (data) => {
         this.patientDetails = data;
+
+        //Function to fetch doctorName based on the Specialty
+        this.fetchDoctorName(data.doctorSpecialty);
       },
       (error) => {
         console.error('Error fetching patient data:', error);
       }
     );
   }
+
+  //Function to fetch DoctorName
+  fetchDoctorName(specialty: string) {
+    this.authService.getDoctorDetailsBySpecialty(specialty).subscribe(
+      (data) => {
+        console.log('Doctor details:', data); // Check what data you're getting
+        if (data && data.length > 0) {
+          const doctor: any = data.find((doctor: any) => doctor.specialty === specialty); 
+          if (doctor) {
+            this.doctorName = doctor.name; // Set doctorName
+            this.updatePatientWithDoctor(this.patientDetails.email, this.doctorName); 
+          } else {
+            this.doctorName = 'No doctor found for this specialty';
+            this.updatePatientWithDoctor(this.patientDetails.email, this.doctorName); 
+          }
+        } else {
+          this.doctorName = 'No doctor found for this specialty';
+          this.updatePatientWithDoctor(this.patientDetails.email, this.doctorName); 
+        }
+      },
+      (error) => {
+        console.error('Error fetching doctor details:', error);
+      }
+    );
+  }
+
+  // Function to update patient data with doctor's name
+  updatePatientWithDoctor(email: string, doctorName: string) {
+    const updatedData = { ...this.patientDetails, doctorName };
+    delete updatedData._id; 
+    this.authService.updatePatientData(email, updatedData).subscribe(
+      (data) => {
+        console.log('Patient data updated with doctorName:', data);
+        this.patientDetails = data; // Update patientDetails after successful update
+      },
+      (error) => {
+        console.error('Error updating patient data:', error);
+      }
+    );
+  }
+
+  // Function to send message
+  sendMessage(message: string) {
+    const email = localStorage.getItem('email');
+    if (!email) {
+      console.error('Email not found in localStorage');
+      return;
+    }
+  
+    this.authService.getPatientDetails(email).subscribe(
+      (data) => {
+        this.patientDetails = data;
+        this.authService.updatePatientMessage(data.email, message).subscribe(
+          (data) => {
+            console.log('Message sent:', data);
+            this.patientDetails = data;
+            this.message = message;
+          },
+          (error) => {
+            console.error('Error sending message:', error);
+          }
+        );
+      },
+      (error) => {
+        console.error('Error fetching patient details:', error);
+      }
+    );
+  }  
 }
 
