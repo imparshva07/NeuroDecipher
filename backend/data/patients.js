@@ -63,7 +63,7 @@ const updateByEmail = async (email, updatedData) => {
     return patient;
   };
 
-/ New method to find patient details by doctor's name
+// New method to find patient details by doctor's name
   const findByDoctorName = async (doctorName) => {
     try {
         const patientsCollection = await patients();
