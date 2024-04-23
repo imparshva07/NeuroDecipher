@@ -29,5 +29,19 @@
         </div>
       </div>
   </div>
+  <h2 class="messages-heading">Messages from Patients</h2>
+  <div *ngIf="doctorMessages.length > 0; else noMessages" class="messages-list">
+    <div *ngFor="let message of doctorMessages" class="message-item">
+      <div class="message-content">
+        <span class="patient-name-label">Patient Name:</span>
+        <span class="patient-name">{{ message.patientName }}</span>
+        <span class="patient-message-label">Message:</span>
+        <span class="patient-message">{{ message.message }}</span>
+      </div>
+    </div>
+  </div>
+  <ng-template #noMessages>
+    <p>No messages found</p>
+  </ng-template>
   </div>
 </body>

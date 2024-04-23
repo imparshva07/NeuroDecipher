@@ -12,7 +12,10 @@ const create = async (newUser
       gender : newUser.gender,
       contactNumber : newUser.contactNumber,
       password : newUser.password,
-      dob : newUser.dob
+      dob : newUser.dob,
+      doctorSpecialty : newUser.doctorSpecialty,
+      doctorName: '', 
+      message: ''
     };
   
     const patientsCollection = await patients();
@@ -33,6 +36,16 @@ const create = async (newUser
     }
 };
 
+const updateByEmail = async (email, updatedData) => {
+  const patientsCollection = await patients();
+  const updatedPatient = await patientsCollection.findOneAndUpdate(
+    { email: email },
+    { $set: updatedData },
+    { returnOriginal: false }
+  );
+  return updatedPatient.value;
+};
+
   const get = async (id) => {
     const patientCollection = await patients();
     const patient = await patientCollection.findOne({_id: new ObjectId(id)});
@@ -50,6 +63,17 @@ const create = async (newUser
     return patient;
   };
 
-  const exportMethods = {create, getPatient, findByEmail, get}
+// New method to find patient details by doctor's name
+  const findByDoctorName = async (doctorName) => {
+    try {
+        const patientsCollection = await patients();
+        const patientsList = await patientsCollection.find({ doctorName: doctorName }).toArray();
+        return patientsList;
+    } catch (error) {
+        throw new Error('Error fetching patients by doctor name: ' + error.message);
+    }
+  };
+
+  const exportMethods = {create, getPatient, findByEmail, get, updateByEmail, findByDoctorName}
 
   export default exportMethods;

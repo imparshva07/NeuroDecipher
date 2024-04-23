@@ -31,9 +31,30 @@ import express from 'express';
 const app = express();
 import configRoutes from './routes/index.js';
 import cors from 'cors';
+import axios from 'axios';
+import bodyParser from 'body-parser';
 
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.json());
+
+app.post('/predict-node', async (req, res) => {
+  try {
+      // Send EEG signals to Python server
+      const response = await axios.post('http://localhost:5000/predict', {
+          eeg_signals: req.body.eeg_signals
+      });
+
+      // Receive prediction from Python server
+      const prediction = response.data.prediction;
+
+      // Handle prediction as needed
+      res.json({ prediction });
+  } catch (error) {
+      console.error('Error:', error.message);
+      res.status(500).json({ error: error.message });
+  }
+});
 
 configRoutes(app);
 

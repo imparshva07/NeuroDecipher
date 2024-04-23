@@ -49,3 +49,48 @@ body {
     font-weight: bold;
     color: #000000;
   } 
+
+.messages-heading {
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 25px;
+  font-family: 'Inter', sans-serif;
+}
+
+.messages-list {
+  padding: 0;
+}
+
+.message-item {
+  color: #000000;
+  font-weight: bold;
+  font-size: 25px;
+  font-family: 'Inter', sans-serif;
+}
+
+.message-content {
+  font-family: 'Inter', sans-serif;
+  align-items: center;
+  display: flex;
+
+}
+
+
+.patient-name-label,
+.patient-message-label {
+  color: #000000;
+  font-weight: bold;
+  font-size: 22px;
+  margin-left: 100px; 
+  font-family: 'Inter', sans-serif;
+  width: 300px; /* Fixed width for the label */
+}
+
+.patient-name,
+.patient-message {
+  color: #FFFFFF;
+  font-size: 25px;
+  font-family: 'Inter', sans-serif;
+  margin-right: 100px; 
+  width: 300px; /* Fixed width for the label */
+}

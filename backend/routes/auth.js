@@ -12,7 +12,7 @@ router
 .route('/signup')
 .post(async (req, res) => {
   try {
-    const { name, email, username, gender, contactNumber, password, dob } = req.body;
+    const { name, email, username, gender, contactNumber, password, dob, doctorSpecialty } = req.body;
     //const hashedPassword = await bcrypt.hash(password, 10);
 
     let newUser = {
@@ -22,7 +22,8 @@ router
       gender : gender,
       contactNumber: contactNumber,
       password : password,
-      dob : dob
+      dob : dob,
+      doctorSpecialty : doctorSpecialty
     };
     await patientData.create(newUser);
     res.status(201).json({ message: 'patient created successfully' });
@@ -119,6 +120,68 @@ router.get('/doctor/email/:email', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+// Route to fetch all doctor Speciality
+router.get('/doctor/specialty', async (req, res) => {
+  try {
+    const doctorsSpecialty = await doctorData.getAllDoctorSpecialty();
+    res.json(doctorsSpecialty);
+  } catch (error) {
+    console.error('Error fetching doctor details:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Route to fetch doctor details by specialty
+router.get('/doctor/specialty/:specialty', async (req, res) => {
+  try {
+    const specialty = req.params.specialty;
+    const doctorDetails = await doctorData.findBySpecialty(specialty);
+    res.json(doctorDetails);
+  } catch (error) {
+    console.error('Error fetching doctor details by specialty:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Route to update patient details with doctorName 
+router.put('/patient/email/:email', async (req, res) => {
+  try {
+    const email = req.params.email;
+    const updatedData = req.body;
+    const updatedPatient = await patientData.updateByEmail(email, updatedData);
+    res.json(updatedPatient);
+  } catch (error) {
+    console.error('Error updating patient data:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Route to update patient details with message
+router.put('/patient/email/:email/message', async (req, res) => {
+  try {
+    const email = req.params.email;
+    const message = req.body.message;
+    const updatedPatient = await patientData.updateByEmail(email, { message });
+    res.json(updatedPatient);
+  } catch (error) {
+    console.error('Error updating patient message:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Route to fetch patient details by doctor's name
+router.get('/patient/doctorName/:doctorName', async (req, res) => {
+  try {
+    const doctorName = req.params.doctorName;
+    const patientDetails = await patientData.findByDoctorName(doctorName);
+    res.json(patientDetails);
+  } catch (error) {
+    console.error('Error fetching patient details by doctor name:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
 export default router;
 
 // router.post('/signup', async (req, res) => {
