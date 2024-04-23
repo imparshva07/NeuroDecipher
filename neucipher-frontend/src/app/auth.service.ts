@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -35,12 +38,11 @@ export class AuthService {
   }
 
   
-  getPatientDetails(_id: string) {
+ getPatientDetails(email: string) {
     // Updated endpoint to reflect fetching by email
-    return this.http.get<any>(`${this.baseUrl}/patient/email/${_id}`);
+    return this.http.get<any>(`${this.baseUrl}/patient/email/${email}`);
   } 
 
-  
   // For Doctor Signup and login
   signupDoctor(userData: any) {
 
@@ -71,5 +73,57 @@ export class AuthService {
     // Updated endpoint to reflect fetching by email
     return this.http.get<any>(`${this.baseUrl}/doctor/email/${_id}`);
   } 
+
+  //Method to get the doctor's Specialty from the database
+   getDoctorSpecialty() {
+    return this.http.get<any[]>(`${this.baseUrl}/doctor/specialty`);
+  }
+
+  //Method to find the doctor details by the Specialty
+  getDoctorDetailsBySpecialty(specialty: string) {
+    return this.http.get<any>(`${this.baseUrl}/doctor/specialty/${specialty}`);
+  }
+
+  //Update to Database for the relevant Patient with the Message
+  updatePatientData(email: string, updatedData: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    return this.http.put<any>(`${this.baseUrl}/patient/email/${email}`, updatedData, httpOptions);
+}
+
+updatePatientMessage(email: string, message: string) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    const body = { message };
+    return this.http.put<any>(`${this.baseUrl}/patient/email/${email}/message`, body, httpOptions);
+  }
+
+//Methode to get the Patient Details by the DoctorName in order to map the Patient Name in the doctor Dashboard
+getPatientsByDoctorName(doctorName: string) {
+    return this.http.get<any[]>(`${this.baseUrl}/patient/doctorName/${doctorName}`).pipe(
+      tap({
+        next: (data) => console.log('Patient data:', data),
+        error: (error) => console.error('Error fetching patient data:', error)
+      }),
+      catchError(this.handleError) 
+    );
+  }
+
+  private handleError(error: any) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    console.error(errorMessage);
+    return throwError(errorMessage);
+  }
   
 }
