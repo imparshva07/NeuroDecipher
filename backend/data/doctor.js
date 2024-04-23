@@ -33,6 +33,26 @@ const create = async (Userdata
     }
 };
 
+  const getAllDoctorSpecialty = async () => {
+    try {
+      const doctorsCollection = await doctors();
+      const doctorsSpecialty = await doctorsCollection.distinct("specialty");
+      return doctorsSpecialty;
+    } catch (error) {
+      throw new Error('Error fetching doctor details: ' + error.message);
+    }
+  };
+  
+  const findBySpecialty = async (specialty) => {
+    try {
+      const doctorsCollection = await doctors();
+      const doctorsSpec = await doctorsCollection.find({ specialty }).toArray();
+      return doctorsSpec;
+    } catch (error) {
+      throw new Error('Error fetching doctors by specialty: ' + error.message);
+    }
+  };
+
   const get = async (id) => {
     const doctorsCollection = await doctors();
     const doctor = await doctorsCollection.findOne({_id: new ObjectId(id)});
@@ -41,6 +61,6 @@ const create = async (Userdata
     return doctor;
   };
 
-  const exportMethods = {create, findEmail, get}
+  const exportMethods = {create, findEmail, get, getAllDoctorSpecialty, findBySpecialty}
 
   export default exportMethods;
