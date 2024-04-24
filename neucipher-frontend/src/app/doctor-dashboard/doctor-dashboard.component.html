@@ -27,7 +27,12 @@
           <span class="doctor-details-label">Medical License Number:</span>
           <span class="doctor-details-value">{{ doctorDetails.ml }}</span>
         </div>
-      </div>
+        <div>
+          <button (click)="confirmLogout()">Logout</button>
+        </div>
+        
+      
+</div>
   </div>
   <h2 class="messages-heading">Messages from Patients</h2>
   <div *ngIf="doctorMessages.length > 0; else noMessages" class="messages-list">

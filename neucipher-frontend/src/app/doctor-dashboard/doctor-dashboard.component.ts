@@ -36,6 +36,8 @@ export class DoctorDashboardComponent {
     );
   }
 
+  
+
   //Function to fetch relevant Message from the Patient
   fetchPatientData(doctorName: string) {
     this.authService.getPatientsByDoctorName(doctorName).subscribe(
@@ -56,4 +58,17 @@ export class DoctorDashboardComponent {
       }
     );
   }
+    confirmLogout() {
+            if (confirm("Are you sure you want to logout?")) {
+              // Redirect to login page
+              window.location.href = './login-doctor/login-doctor.component.html';
+            } else {
+              // Redirect to dashboard page
+              window.location.href = './doctor-dashboard/doctor-dashboard.component.html';
+            }
+          }
+  /* const logoutBtn = document.querySelector(".logout-btn")
+  logoutBtn.addEventListener("click",()=>
+  {
+    window.location.replace("login.html") }) */
 }
