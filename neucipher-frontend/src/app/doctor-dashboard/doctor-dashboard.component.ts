@@ -67,8 +67,5 @@ export class DoctorDashboardComponent {
               window.location.href = './doctor-dashboard/doctor-dashboard.component.html';
             }
           }
-  /* const logoutBtn = document.querySelector(".logout-btn")
-  logoutBtn.addEventListener("click",()=>
-  {
-    window.location.replace("login.html") }) */
+  
 }
