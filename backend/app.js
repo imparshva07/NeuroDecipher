@@ -33,28 +33,184 @@ import configRoutes from './routes/index.js';
 import cors from 'cors';
 import axios from 'axios';
 import bodyParser from 'body-parser';
+import fs from 'fs';
+import FormData from 'form-data';
 
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
 
-app.post('/predict-node', async (req, res) => {
+app.post('/send-helpme', async (req, res) => {
   try {
-      // Send EEG signals to Python server
-      const response = await axios.post('http://localhost:5000/predict', {
-          eeg_signals: req.body.eeg_signals
+    // Read data from a JSON file asynchronously
+    fs.readFile('/Users/parshvashah/parshva/Course materials/CS 555/project/CS-SSW-555-Team-6/model/help_me_eeg_data.json', (err, jsonData) => {
+      if (err) {
+        console.error('Error reading JSON file:', err);
+        res.status(500).send('Internal Server Error');
+        return;
+      }
+      
+      //const eegData = JSON.parse(jsonData);
+      
+      // Send a POST request to FastAPI server
+      axios.post('http://localhost:8000/predict-helpme', jsonData, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => {
+        console.log('Predicted class:', response.data);
+        // Handle response data as needed
+        res.json(response.data); // Send response back to client
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        res.status(500).send('Internal Server Error'); // Handle error response
       });
-
-      // Receive prediction from Python server
-      const prediction = response.data.prediction;
-
-      // Handle prediction as needed
-      res.json({ prediction });
+    });
   } catch (error) {
-      console.error('Error:', error.message);
-      res.status(500).json({ error: error.message });
+    console.error('Error:', error);
+    res.status(500).send('Internal Server Error');
   }
 });
+
+app.post('/send-hello', async (req, res) => {
+  try {
+    // Read data from a JSON file asynchronously
+    fs.readFile('/Users/parshvashah/parshva/Course materials/CS 555/project/CS-SSW-555-Team-6/model/hello_eeg_data.json', (err, jsonData) => {
+      if (err) {
+        console.error('Error reading JSON file:', err);
+        res.status(500).send('Internal Server Error');
+        return;
+      }
+      
+      //const eegData = JSON.parse(jsonData);
+      
+      // Send a POST request to FastAPI server
+      axios.post('http://localhost:8000/predict-hello', jsonData, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => {
+        console.log('Predicted class:', response.data);
+        // Handle response data as needed
+        res.json(response.data); // Send response back to client
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        res.status(500).send('Internal Server Error'); // Handle error response
+      });
+    });
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+app.post('/send-yes', async (req, res) => {
+  try {
+    // Read data from a JSON file asynchronously
+    fs.readFile('/Users/parshvashah/parshva/Course materials/CS 555/project/CS-SSW-555-Team-6/model/yes_eeg_data.json', (err, jsonData) => {
+      if (err) {
+        console.error('Error reading JSON file:', err);
+        res.status(500).send('Internal Server Error');
+        return;
+      }
+      
+      //const eegData = JSON.parse(jsonData);
+      
+      // Send a POST request to FastAPI server
+      axios.post('http://localhost:8000/predict-yes', jsonData, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => {
+        console.log('Predicted class:', response.data);
+        // Handle response data as needed
+        res.json(response.data); // Send response back to client
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        res.status(500).send('Internal Server Error'); // Handle error response
+      });
+    });
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+app.post('/send-thankyou', async (req, res) => {
+  try {
+    // Read data from a JSON file asynchronously
+    fs.readFile('/Users/parshvashah/parshva/Course materials/CS 555/project/CS-SSW-555-Team-6/model/thank you_eeg_data.json', (err, jsonData) => {
+      if (err) {
+        console.error('Error reading JSON file:', err);
+        res.status(500).send('Internal Server Error');
+        return;
+      }
+      
+      //const eegData = JSON.parse(jsonData);
+      
+      // Send a POST request to FastAPI server
+      axios.post('http://localhost:8000/predict-thankyou', jsonData, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => {
+        console.log('Predicted class:', response.data);
+        // Handle response data as needed
+        res.json(response.data); // Send response back to client
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        res.status(500).send('Internal Server Error'); // Handle error response
+      });
+    });
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+app.post('/send-stop', async (req, res) => {
+  try {
+    // Read data from a JSON file asynchronously
+    fs.readFile('/Users/parshvashah/parshva/Course materials/CS 555/project/CS-SSW-555-Team-6/model/stop_eeg_data.json', (err, jsonData) => {
+      if (err) {
+        console.error('Error reading JSON file:', err);
+        res.status(500).send('Internal Server Error');
+        return;
+      }
+      
+      //const eegData = JSON.parse(jsonData);
+      
+      // Send a POST request to FastAPI server
+      axios.post('http://localhost:8000/predict-stop', jsonData, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => {
+        console.log('Predicted class:', response.data);
+        // Handle response data as needed
+        res.json(response.data); // Send response back to client
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        res.status(500).send('Internal Server Error'); // Handle error response
+      });
+    });
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+
 
 configRoutes(app);
 
