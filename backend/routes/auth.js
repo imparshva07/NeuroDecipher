@@ -111,13 +111,13 @@ router.post('/logindoctor', async (req, res) => {
 // Route to fetch doctor details using email
 router.get('/doctor/email/:email', async (req, res) => {
   try {
-    console.log('Fetching doctor data for email:', req.params.email);
+  //  console.log('Fetching doctor data for email:', req.params.email);
     const email = req.params.email;
     const doctorDetails = await doctorData.findEmail(email);
-    console.log('Doctor details:', doctorDetails);
+  //  console.log('Doctor details:', doctorDetails);
     res.json(doctorDetails);
   } catch (error) {
-    console.error('Error fetching doctor data:', error);
+    //console.error('Error fetching doctor data:', error);
     res.status(500).json({ error: error.message });
   }
 });
