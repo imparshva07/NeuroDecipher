@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { throwError } from 'rxjs';
+import { throwError, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { tap } from 'rxjs/operators';
 
@@ -94,15 +94,14 @@ export class AuthService {
     return this.http.put<any>(`${this.baseUrl}/patient/email/${email}`, updatedData, httpOptions);
 }
 
-updatePatientMessage(email: string, message: string) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
-    const body = { message };
-    return this.http.put<any>(`${this.baseUrl}/patient/email/${email}/message`, body, httpOptions);
-  }
+  updatePatientMessage(email: string, action: string) {
+      return this.http.put<any>(`${this.baseUrl}/patient/email/${email}/message`, { action });
+    }
+  
+  sendAction(action: string): Observable<any> {
+      const encodedAction = encodeURIComponent(action);
+      return this.http.post<any>(`http://localhost:3000/send-${encodedAction}`, {});
+    }
 
 //Methode to get the Patient Details by the DoctorName in order to map the Patient Name in the doctor Dashboard
 getPatientsByDoctorName(doctorName: string) {
