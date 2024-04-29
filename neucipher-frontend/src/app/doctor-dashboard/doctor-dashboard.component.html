@@ -30,8 +30,6 @@
         <div>
           <button (click)="confirmLogout()">Logout</button>
         </div>
-        
-      
 </div>
   </div>
   <h2 class="messages-heading">Messages from Patients</h2>
@@ -41,7 +39,10 @@
         <span class="patient-name-label">Patient Name:</span>
         <span class="patient-name">{{ message.patientName }}</span>
         <span class="patient-message-label">Message:</span>
-        <span class="patient-message">{{ message.message }}</span>
+        <span class="patient-message"
+              [ngClass]="{'help-me': isHelpMe(message.message), 'stop': isStop(message.message), 'blinking': isHelpMe(message.message) || isStop(message.message)}">
+          {{ message.message }}
+        </span>
       </div>
     </div>
   </div>
