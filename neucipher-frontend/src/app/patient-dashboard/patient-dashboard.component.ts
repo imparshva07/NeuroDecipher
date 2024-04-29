@@ -80,24 +80,37 @@ export class PatientDashboardComponent implements OnInit {
   }
 
   // Function to send message
-  sendMessage(message: string) {
+  sendMessage(action: string) {
     const email = localStorage.getItem('email');
     if (!email) {
       console.error('Email not found in localStorage');
       return;
     }
   
+    this.authService.sendAction(action).subscribe(
+      (data: any) => {
+        console.log('Message sent:', data);
+        const message = data.predicted_class[0];
+        this.message = message;
+        this.updatePatientMessage(email, message);
+      },
+      (error: any) => {
+        console.error('Error sending message:', error);
+      }
+    );
+  }
+    updatePatientMessage(email: string, action: string) {
     this.authService.getPatientDetails(email).subscribe(
       (data) => {
         this.patientDetails = data;
-        this.authService.updatePatientMessage(data.email, message).subscribe(
-          (data) => {
-            console.log('Message sent:', data);
-            this.patientDetails = data;
-            this.message = message;
+        this.authService.updatePatientMessage(data.email, action).subscribe(
+          (updatedData) => {
+            console.log('Patient message updated:', updatedData);
+            this.patientDetails = updatedData;
+            this.patientDetails.message = action; // Store the first action
           },
           (error) => {
-            console.error('Error sending message:', error);
+            console.error('Error updating patient message:', error);
           }
         );
       },
@@ -105,6 +118,6 @@ export class PatientDashboardComponent implements OnInit {
         console.error('Error fetching patient details:', error);
       }
     );
-  }  
+  }
 }
 
