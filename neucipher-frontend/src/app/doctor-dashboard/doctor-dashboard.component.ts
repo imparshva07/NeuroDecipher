@@ -67,5 +67,13 @@ export class DoctorDashboardComponent {
               window.location.href = './doctor-dashboard/doctor-dashboard.component.html';
             }
           }
+
+   isHelpMe(message: string): boolean {
+    return message.toLowerCase().includes('help me');
+  }
+  
+  isStop(message: string): boolean {
+    return message.toLowerCase().includes('stop');
+  }
   
 }
