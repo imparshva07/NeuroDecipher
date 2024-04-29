@@ -94,3 +94,23 @@ body {
   margin-right: 100px; 
   width: 300px; /* Fixed width for the label */
 }
+
+.help-me {
+  color: #FF0000; 
+  font-size: 40px;
+}
+
+.stop {
+  color: #444a41; 
+  font-size: 35px; 
+}
+
+.blinking {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
