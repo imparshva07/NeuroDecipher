@@ -1,8 +1,8 @@
-/* signup.component.scss */
+//New code:
 
 .background {
   background-color: #51A3BC; 
-  min-height: 180vh; 
+  min-height: 180vh;
   padding: 30px 90px; 
   position: relative;
   
@@ -11,13 +11,14 @@
 
 
 form {
-  background-color: #51A3BC; 
-  padding: 100px;
+  background-color: #51A3BC;
+  padding: 50px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
   max-width: 1000px; 
-  width: 100%; 
+  width: 100%;
   border: 3px solid white;
+  margin: 0 auto; 
 }
 
 .form-group {
@@ -39,7 +40,7 @@ form {
     border: 2px solid black;
     border-radius: 7px;
     box-sizing: border-box;
-    background-color: white; 
+    background-color: white;
   }
 }
 
@@ -66,4 +67,43 @@ button:hover {
   font-size: 12px;
 } 
 
+/*NeuCipher Med Portal Name*/
+.webapp-name {
+  position: absolute; 
+  bottom: 0; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  font-size: 25px;
+  margin-top: 0;
+  color: #066EA8;
+  padding-bottom: 5px; 
+  font-family: 'Inter', sans-serif;
+}
+.n, .c, .m, .p{
+  color: #066EA8;
+  font-size: 35px;
+  font-family: 'Inter', sans-serif;
+}
+
+/*Background of the Navigation Bar*/
+.navbar {
+      position: fixed; 
+      top: 0; 
+      left: 15px;
+      right: 20px;
+      width:100%;
+      height: 80px;
+      background-color: #f8f6f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px; 
+      
   
+}
+
+/*Image on the Navbar*/
+.navbar-logo {
+  max-height: 100%;
+  margin-left: 2px; 
+}
