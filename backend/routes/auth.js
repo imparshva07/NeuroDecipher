@@ -1,6 +1,7 @@
 import {Router} from 'express';
 const router = Router();
 import {patientData , doctorData} from '../data/index.js';
+import axios from 'axios'; 
 
 // router
 // .route('/')
@@ -161,8 +162,12 @@ router.put('/patient/email/:email', async (req, res) => {
 router.put('/patient/email/:email/message', async (req, res) => {
   try {
     const email = req.params.email;
-    const message = req.body.message;
-    const updatedPatient = await patientData.updateByEmail(email, { message });
+    const action = req.body.action.replace(/\s/g, ''); 
+    
+    const predictedMessage = await axios.post(`http://localhost:3000/send-${action}`, {
+    });
+    
+    const updatedPatient = await patientData.updateByEmail(email, { message: predictedMessage.data.predicted_class[0] });
     res.json(updatedPatient);
   } catch (error) {
     console.error('Error updating patient message:', error);
