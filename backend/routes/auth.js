@@ -2,6 +2,7 @@ import {Router} from 'express';
 const router = Router();
 import {patientData , doctorData} from '../data/index.js';
 import axios from 'axios'; 
+import jwt from 'jsonwebtoken';
 
 // router
 // .route('/')
@@ -36,20 +37,30 @@ router
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
+
+    // Find the user by email
     const user = await patientData.findByEmail(email); 
+
     if (!user) {
       return res.status(401).json({ error: 'Invalid email or password.' });
     }
 
-    const isPasswordValid = await bcrypt.compare(password, user.password);
+    // Check if the password is valid
+    const isPasswordValid = (password === user.password);
     if (!isPasswordValid) {
       return res.status(401).json({ error: 'Invalid email or password.' });
     }
+
+    // If email and password are valid, generate JWT token
     const token = jwt.sign({ userId: user._id }, '6bf7bb05665c95a51cefd55bc910fde90ded046008a133d26688762a2677d440', { expiresIn: '5h' });
+
+    // Return token and user information in the response
     res.json({ token, userId: user._id, email: user.email, name: user.name });
 
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    // Handle any errors
+    console.error('Login error:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 

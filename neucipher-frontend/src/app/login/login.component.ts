@@ -12,21 +12,24 @@ export class LoginComponent {
   password: string = '';
 
   constructor(private authService: AuthService,private router: Router) { }
-
   async onLogin() {
     try {
       let userData = {
         email: this.email,
         password: this.password
-      }
-      await this.authService.login(userData);
-      
-      // Store email and token in localStorage upon successful login
-      localStorage.setItem('email', this.email);
+      };
+  
+      // Call the login method and await the result
+      const loginInfo = await this.authService.login(userData).toPromise();
+  
+      // Store the token in local storage upon successful login
+      localStorage.setItem('token', loginInfo.token);
+      console.log('Login successful');
       alert('Login successful!');
       this.router.navigate(['/patientdashboard']);
     } catch (error) {
+      console.error('Login error:', error);
       alert('Login failed. Please check your email and password.');
     }
-  } 
+  }
 }

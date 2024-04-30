@@ -26,15 +26,8 @@ export class AuthService {
       );
   }
 
-  login(userData: { email: string; password: string; }) {
-    return this.http.post<any>(`${this.baseUrl}/login`, userData)
-      .subscribe(
-        response => {
-          localStorage.setItem('token', response.token);
-          console.log('Login successful');
-        },
-        error => console.log('Login error:', error)
-      );
+  login(userData: { email: string; password: string; }): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/login`, userData);
   }
 
   

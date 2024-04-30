@@ -36,6 +36,9 @@
           </div>
         </div>
     </div>
+    <div class="right-section" *ngIf="isDashboard">
+      <a class="navigation-link logout-button" (click)="logout()">LOGOUT</a>
+    </div>
   </nav>
 <img src="assets/BackgroundImage1.png" alt="Background Medical Application" class="Firstimage">
 <img src="assets/BackgroundImage2.png" alt="Background Medical kit" class="Secondimage">

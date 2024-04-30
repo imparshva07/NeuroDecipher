@@ -10,6 +10,7 @@ import { filter } from 'rxjs/operators';
 export class AppComponent {
   isHomePage: boolean = true; 
   title = 'neucipher-frontend';
+  isDashboard: boolean = false;
 
   constructor(private router: Router) {
     this.router.events.pipe(
@@ -17,7 +18,13 @@ export class AppComponent {
     ).subscribe((event: NavigationEnd) => {
       // Update isHomePage based on the current URL
       this.isHomePage = event.url === '/' || event.url === '/home';
+      this.isDashboard = event.url ==='/patientdashboard' || event.url === '/doctordashboard'
     });
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/']);
   }
 }
 
