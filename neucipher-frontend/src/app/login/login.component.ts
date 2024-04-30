@@ -24,6 +24,7 @@ export class LoginComponent {
   
       // Store the token in local storage upon successful login
       localStorage.setItem('token', loginInfo.token);
+      localStorage.setItem('email', this.email);
       console.log('Login successful');
       alert('Login successful!');
       this.router.navigate(['/patientdashboard']);
