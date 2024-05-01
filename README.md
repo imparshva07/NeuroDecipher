@@ -12,3 +12,7 @@ NOTE : You may require these dependencies to install :   pip install fastapi uvi
 Please find all the required Jsons & .pt model here : https://drive.google.com/drive/u/1/folders/1u6sAHUsmFOJ8-OoI3KAqkGMXaVTUjthR
 
 put these Jsons and folder in the model folder for a smooth run.
+
+
+
+Find the video demonstration of our application here : https://drive.google.com/file/d/1iogjqR-12rYwTx82nbC9H1QV2d5VeJXp/view
