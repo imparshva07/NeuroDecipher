@@ -1,15 +1,14 @@
-# SSW555Team 6
-
-[![Meghana-Arumilli](https://circleci.com/gh/Meghana-Arumilli/SSW555Team6.svg?style=svg)](https://app.circleci.com/pipelines/github/Meghana-Arumilli)
-
-- to run neucipher-frontend, 
-run => npm install => ng serve
-
-- to run backend,
-run => npm install => node app.js
-
-- Machine learning Model training dataset
+# CS/SSW 555, Team-6
   
-NOTE : We should keep the server and the db connection running in order to make successful API & DB requests.
+To run the application,
 
-NOTE : facing issue while calling node js backend APIs. Have completed writing APIs for sign up & login and looks correct. Tried hours resolving the issue, But as it's still unresolved, will continue it in the next sprint. So, commented the sign up call for now.
+go to backend -> open terminal -> run "npm start"
+go to neucipher-frontend -> open terminal -> run "npm start"
+go to model folder -> open terminal -> run "python server.py"
+
+
+NOTE : You may require these dependencies to install :   pip install fastapi uvicorn pydantic
+
+Please find all the required Jsons & .pt model here : https://drive.google.com/drive/u/1/folders/1u6sAHUsmFOJ8-OoI3KAqkGMXaVTUjthR
+
+put these Jsons and folder in the model folder for a smooth run.
