@@ -1,5 +1,19 @@
-# CS/SSW 555, Team-6
-  
+# Neuro Decipher
+
+Leveraging cutting-edge technologies like Angular, Node.js, MongoDB, and Machine Learning (ANN & Logistic Regression), we developed a communication system which enables patients to convey critical messages to doctors in real-time. This innovative solution utilizes EEG data to interpret patient messages, ensuring timely assistance in emergency situations.
+
+- Engaged with industry clients to implement Agile Methodology, optimizing project development processes, monitoring project advancement, and identifying bottlenecks.
+
+Key Features:
+- EEG data analysis using Machine Learning models
+- Real-time message interpretation and transmission to doctor's dashboard
+- Emergency alerts for critical messages like "help me" or "stop"
+- Empowering patients with communication difficulties to connect with doctors
+
+Impact:
+This project has the potential to transform healthcare communication, enabling swift and effective patient-doctor interactions.Leveraging cutting-edge technologies like Angular, Node.js, MongoDB, and Machine Learning (ANN & Logistic Regression), we developed a communication system which enables patients to convey critical messages to doctors in real-time. This innovative solution utilizes EEG data to interpret patient messages, ensuring timely assistance in emergency situations. - Engaged with industry clients to implement Agile Methodology, optimizing project development processes, monitoring project advancement, and identifying bottlenecks. Key Features: - EEG data analysis using Machine Learning models - Real-time message interpretation and transmission to doctor's dashboard - Emergency alerts for critical messages like "help me" or "stop" - Empowering patients with communication difficulties to connect with doctors Impact: This project has the potential to transform healthcare communication, enabling swift and effective patient-doctor interactions.
+
+
 To run the application,
 
 go to backend -> open terminal -> run "npm start"
